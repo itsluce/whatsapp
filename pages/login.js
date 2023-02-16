@@ -59,7 +59,7 @@ function Login() {
         <title>Login</title>
       </Head>
 
-      {/* <>
+      <>
         <center>
           <LoginContainer style={{ display: !show ? "block" : "none" }}>
             <h2 style={{ paddingBottom: "2rem" }}>Please enter phone number</h2>
@@ -90,14 +90,14 @@ function Login() {
             <Buttons onClick={ValidateOtp}>Verify</Buttons>
           </LoginContainer>
         </center>
-      </> */}
+      </>
 
-      <LoginContainer>
+      {/* <LoginContainer>
         <Logo src={whatsappLogo} />
         <Button onClick={signIn} variant="outlined">
           Sign in with Google
         </Button>
-      </LoginContainer>
+      </LoginContainer> */}
     </Container>
   );
 }
