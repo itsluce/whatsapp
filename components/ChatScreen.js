@@ -8,6 +8,8 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import MicIcon from "@mui/icons-material/Mic";
+import EmojiPicker from "emoji-picker-react";
+import { AiOutlineSend } from "react-icons/ai";
 import {
   collection,
   doc,
@@ -81,7 +83,7 @@ function Chatscreen({ chat, messages }) {
     addDoc(colRef, {
       timestamp: Timestamp.now(),
       message: input,
-      user: user.email,
+      user: user.phoneNumber,
       photoURL: user.photoURL,
     });
 
@@ -135,12 +137,21 @@ function Chatscreen({ chat, messages }) {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a message"
         />
-        <button disabled={!input} type="submit" onClick={sendMessage}>
-          Send Message
-        </button>
-        <IconButton>
-          <MicIcon className="icons" />
-        </IconButton>
+        {/* <EmojiPicker onEmojiClick={input} /> */}
+        {input ? (
+          <IconButton>
+            <AiOutlineSend
+              disabled={!input}
+              type="submit"
+              onClick={sendMessage}
+              className="icons"
+            />
+          </IconButton>
+        ) : (
+          <IconButton>
+            <MicIcon className="icons" />
+          </IconButton>
+        )}
       </InputContainer>
     </Container>
   );
