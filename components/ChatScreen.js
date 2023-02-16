@@ -137,6 +137,9 @@ function Chatscreen({ chat, messages }) {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type a message"
         />
+            <button disabled={!input} type="submit" onClick={sendMessage}>
+          Send Message
+        </button>
         {/* <EmojiPicker onEmojiClick={input} /> */}
         {input ? (
           <IconButton>
