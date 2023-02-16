@@ -28,16 +28,16 @@ function Login() {
       "recaptcha-container",
       {
         size: "invisible",
-        callback: (response) => {},
+        // callback: (response) => {},
       },
       auth
     );
-    let verify = window.recaptchaVerifier;
-    signInWithPhoneNumber(auth, mynumber, verify)
+
+    signInWithPhoneNumber(auth, mynumber, window.recaptchaVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
         setfinal(confirmationResult);
-        alert("code sent");
+        // alert("code sent");
         setshow(true);
       })
       .catch((error) => {});
